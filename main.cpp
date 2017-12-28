@@ -22,8 +22,10 @@ public:
 
 class Kolo :public Punkt
 {
-    float r;
     string nazwa;
+protected:
+    float r;
+
 public:
 
 
@@ -43,12 +45,28 @@ public:
     }
 };
 
+class Kula :public Kolo
+{
+    string nazwa;
+public:
+    Kula(string nku="Kula", string np="S", float a=0, float b=0, float pr=1)
+    :Kolo(nku,np,a,b,pr)
+    {
+        nazwa=nku;
+    }
 
+    void wyswietl()
+    {
+        Kolo::wyswietl();
+        cout<<"Objetosc kuli wynosi: "<< (4.00/3)*3.14*r*r*r<< endl;
+    }
+
+};
 
 int main()
 {
-    Kolo k1;
-    k1.wyswietl();
+    Kula ku1;
+    ku1.wyswietl();
 
 
     return 0;
